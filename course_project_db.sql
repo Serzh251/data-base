@@ -121,3 +121,17 @@ CREATE TABLE ordered (
     quantity BIGINT unsigned COMMENT 'кол-во, шт',
     FOREIGN KEY (catalog_id) REFERENCES catalogs(id)
 )COMMENT = 'таблица заказов на пополнение';
+
+DROP TABLE IF EXISTS optocouplers;
+CREATE TABLE optocouplers (
+	id SERIAL PRIMARY key,
+	catalog_id BIGINT UNSIGNED NOT NULL,
+    `type` VARCHAR(100),
+    part_number VARCHAR(100)COMMENT 'артикул',
+    reverse_voltage BIGINT unsigned COMMENT 'обратное напряжение, в',
+    forward_current INT unsigned COMMENT 'прямой ток, А',
+    type_body VARCHAR(100) COMMENT 'тип корпуса',
+    manufacturer VARCHAR(100) COMMENT 'производитель',
+    quantity BIGINT unsigned COMMENT 'кол-во, шт',
+    FOREIGN KEY (catalog_id) REFERENCES catalogs(id)
+)COMMENT = 'резисторы';
